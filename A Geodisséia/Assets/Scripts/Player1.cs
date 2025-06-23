@@ -19,8 +19,9 @@ public class Player1 : MonoBehaviour
 
     void Andar1()
     {
-       if (Input.GetKeyUp(KeyCode.W))
+       if (Input.GetKeyUp(KeyCode.D))
        {
+           Vector2 movement = new Vector2(velocidade, rb.velocity.x);
            velocidade = velocidade * 1;
        }
     }
