@@ -19,7 +19,11 @@ public class Player1 : MonoBehaviour
 
     void Andar1()
     {
+<<<<<<< Updated upstream
        if (Input.GetKey(KeyCode.D))
+=======
+       if (Input.GetKeyDown(KeyCode.D))
+>>>>>>> Stashed changes
        {
            Vector2 movement = new Vector2(velocidade, 0);
            rb.AddForce(movement, ForceMode2D.Impulse);
