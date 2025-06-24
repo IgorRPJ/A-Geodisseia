@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player1 : MonoBehaviour
 {
-        public float velocidade = 5;
+        public float velocidade = 1;
         Rigidbody2D rb;
         
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,10 +19,15 @@ public class Player1 : MonoBehaviour
 
     void Andar1()
     {
-       if (Input.GetKeyUp(KeyCode.D))
+       if (Input.GetKey(KeyCode.D))
        {
-           Vector2 movement = new Vector2(velocidade, rb.velocity.x);
-           velocidade = velocidade * 1;
+           Vector2 movement = new Vector2(velocidade, 0);
+           rb.AddForce(movement, ForceMode2D.Impulse);
+       }
+       else if (Input.GetKey(KeyCode.A))
+       {
+           Vector2 movement = new Vector2(-velocidade, 0);
+           rb.AddForce(movement, ForceMode2D.Impulse);
        }
     }
 }
