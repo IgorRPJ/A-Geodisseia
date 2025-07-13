@@ -25,11 +25,11 @@ public class Player1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Andar1();
+        Andar();
         Jump();
     }
 
-    void Andar1()
+    void Andar()
     {
         float movement = 0;
 
