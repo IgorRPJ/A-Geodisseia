@@ -64,7 +64,7 @@ public class Player1 : MonoBehaviour
 
     void Jump()
     {
-        if(Input.GetButtonDown("Jump")&&!isJumping)
+        if(Input.GetKeyDown(KeyCode.W)&&!isJumping)
         {
             if(!isJumping)
             {
@@ -77,7 +77,7 @@ public class Player1 : MonoBehaviour
                 if(DoubleJump)
                 {
                     rb.AddForce(new Vector2(0f, JumpForce * 2f), ForceMode2D.Impulse);
-                    DoubleJump = false;
+                    DoubleJump = true;
                 }
             }
             
