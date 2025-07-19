@@ -37,23 +37,15 @@ public class Player1 : MonoBehaviour
        {
 
         //movement = velocidade;
-            Vector2 movementx = new Vector2(velocidade, 0);
            //rb.AddForce(movement, ForceMode2D.Impulse);
-           rb.linearVelocity = new Vector2(velocidade, 0);
+           rb.linearVelocity = new Vector2(velocidade, rb.linearVelocity.y);
        }
        else if (Input.GetKey(KeyCode.A))
        {
-           Vector2 movementx = new Vector2(-velocidade, 0);
            //rb.AddForce(movement, ForceMode2D.Impulse);
-           rb.linearVelocity = new Vector2(-velocidade, 0);
+           rb.linearVelocity = new Vector2(-velocidade, rb.linearVelocity.y);
        }
        
-        else if (Input.GetKey(KeyCode.W)&&!isJumping)
-       {
-           Vector2 movementx = new Vector2(0, velocidade);
-           //rb.AddForce(movement, ForceMode2D.Impulse);
-           rb.linearVelocity = new Vector2(0, velocidade);
-       }
 
        else if (Input.GetKeyDown(KeyCode.S))
        {
@@ -64,29 +56,29 @@ public class Player1 : MonoBehaviour
 
     void Jump()
     {
-        if(Input.GetKeyDown(KeyCode.W)&&!isJumping)
+        if(Input.GetKeyDown(KeyCode.W))
         {
+            Debug.Log("Tentando pular");
+
             if(!isJumping)
             {
                 rb.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
+                isJumping = true;
                 DoubleJump = true;
                 //anim.SetBool("jump", true);
-            }
-            else
-            {
-                if(DoubleJump)
-                {
-                    rb.AddForce(new Vector2(0f, JumpForce * 2f), ForceMode2D.Impulse);
-                    DoubleJump = true;
-                }
-            }
+            //}
+            //else if(DoubleJump)
+            //{
+              //  rb.AddForce(new Vector2(0f, JumpForce * 2f), ForceMode2D.Impulse);
+              //  DoubleJump = false;
+            //}
             
         }
     }
 
       void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 8)
+        if(collision.gameObject.layer == 6)
         {
             isJumping = false;
             //anim.SetBool("jump", false);
@@ -96,10 +88,11 @@ public class Player1 : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 8)
+        if(collision.gameObject.layer == 6)
         {
             isJumping = true;
+            DoubleJump = true;
         }
     }
-
+    }
 }

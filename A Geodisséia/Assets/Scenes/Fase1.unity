@@ -131,9 +131,9 @@ GameObject:
   - component: {fileID: 85101249}
   - component: {fileID: 85101248}
   - component: {fileID: 85101247}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: "Ch\xE3o"
-  m_TagString: "Ch\xE3o"
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1184,6 +1184,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 5
+  JumpForce: 0
+  isJumping: 0
+  DoubleJump: 0
+  estaNoChao: 0
+  forcaPulo: 10
+  raioChao: 0.2
 --- !u!1 &1483851808
 GameObject:
   m_ObjectHideFlags: 0
