@@ -9,7 +9,7 @@ public class Player2 : MonoBehaviour
         public bool isJumping;
         public bool DoubleJump;
 
-        private Animator anim;
+        //private Animator anim;
 
         public bool estaNoChao;
         public float forcaPulo = 10f;
@@ -61,7 +61,7 @@ public class Player2 : MonoBehaviour
 
     void Jump()
     {
-        if(Input.GetButtonDown("Jump")&&!isJumping)
+        if(Input.GetKeyDown(KeyCode.W)&&!isJumping)
         {
             if(!isJumping)
             {
@@ -83,7 +83,7 @@ public class Player2 : MonoBehaviour
 
       void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 8)
+        if(collision.gameObject.layer == 6)
         {
             isJumping = false;
             //anim.SetBool("jump", false);
@@ -93,7 +93,7 @@ public class Player2 : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 8)
+        if(collision.gameObject.layer == 6)
         {
             isJumping = true;
         }
