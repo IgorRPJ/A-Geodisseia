@@ -1915,12 +1915,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 5
-  JumpForce: 0
+  JumpForce: 5
   isJumping: 0
   DoubleJump: 0
-  estaNoChao: 0
-  forcaPulo: 10
-  raioChao: 0.2
 --- !u!1 &1483851808
 GameObject:
   m_ObjectHideFlags: 0

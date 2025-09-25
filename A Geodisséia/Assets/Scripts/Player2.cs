@@ -11,9 +11,9 @@ public class Player2 : MonoBehaviour
 
         //private Animator anim;
 
-        public bool estaNoChao;
-        public float forcaPulo = 10f;
-        public float raioChao = 0.2f;
+        //public bool estaNoChao;
+        //public float forcaPulo = 10f;
+        //public float raioChao = 0.2f;
         
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,48 +30,56 @@ public class Player2 : MonoBehaviour
 
     void Andar()
     {
-        float movement = 0;
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow)) //D
         {
             Vector2 movementx = new Vector2(velocidade, 0);
             //rb.AddForce(movement, ForceMode2D.Impulse);
-            rb.linearVelocity = new Vector2(velocidade, 0);
+            rb.linearVelocity = new Vector2(velocidade, rb.linearVelocity.y); //continua a msm coisa, nn deixa de arrastar
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow)) //A
         {
             Vector2 movementx = new Vector2(-velocidade, 0);
             //rb.AddForce(movement, ForceMode2D.Impulse);
             rb.linearVelocity = new Vector2(-velocidade, 0);
         }
-       
-        else if (Input.GetKey(KeyCode.UpArrow)&&!isJumping)
+
+        else if (Input.GetKeyDown(KeyCode.DownArrow)) //S - Igual ao outro
         {
-            Vector2 movementx = new Vector2(0, velocidade);
+            Debug.Log("Quadrium abaixou, clicou o botão ");
+            //Vector2 movementx = new Vector2(-0, velocidade);
+        }
+
+        else //ver se mantêm - igual p1
+        {
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); //para não dslizar
+        }
+
+        //else if (Input.GetKey(KeyCode.UpArrow) && !isJumping) //o p1 tá sem isJumping - antes
+        //{
+            //Vector2 movementx = new Vector2(0, velocidade);
             //rb.AddForce(movement, ForceMode2D.Impulse);
-            rb.linearVelocity = new Vector2(0, velocidade);
-        }
-       
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            Debug.Log("Quadrium, clicou o botão S");
-            Vector2 movementx = new Vector2(-0, velocidade);
-        }
+            //rb.linearVelocity = new Vector2(0, 0);
+        //}
+        
+
     }
 
     void Jump()
     {
-        if(Input.GetKeyDown(KeyCode.W)&&!isJumping)
+        if(Input.GetKeyDown(KeyCode.UpArrow)&&!isJumping) //problema com isJumping só funciona as vezes e travado
         {
             if(!isJumping)
             {
+                Debug.Log("Tentando pular");
                 rb.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
                 DoubleJump = true;
                 //anim.SetBool("jump", true);
             }
+            
             else
             {
-                if(DoubleJump)
+                if (DoubleJump)
                 {
                     rb.AddForce(new Vector2(0f, JumpForce * 2f), ForceMode2D.Impulse);
                     DoubleJump = false;
@@ -83,7 +91,7 @@ public class Player2 : MonoBehaviour
 
       void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 6)
+        if(collision.gameObject.CompareTag("Ground"))
         {
             isJumping = false;
             //anim.SetBool("jump", false);
@@ -93,9 +101,9 @@ public class Player2 : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 6)
+        if(collision.gameObject.CompareTag("Ground"))
         {
-            isJumping = true;
+            isJumping = true; //p1 infinite pulo tá false ein
         }
     }
 }
