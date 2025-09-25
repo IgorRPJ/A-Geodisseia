@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class Player1 : MonoBehaviour
 {
-        public float velocidade = 5;
-        Rigidbody2D rb;
+    public float velocidade = 5;
+    Rigidbody2D rb;
 
-        public float JumpForce;
-        public bool isJumping;
-        public bool DoubleJump;
+    public float JumpForce;
+    public bool isJumping;
+    public bool DoubleJump;
 
-        //private Animator anim;
+    //private Animator anim;
 
-        //public bool estaNoChao;
-        //public float forcaPulo = 10f;
-        //public float raioChao = 0.2f;
+    //public bool estaNoChao;
+    //public float forcaPulo = 10f;
+    //public float raioChao = 0.2f;
 
-        
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,26 +33,26 @@ public class Player1 : MonoBehaviour
     {
         float movement = 0;
 
-       if (Input.GetKey(KeyCode.D))
-       {
+        if (Input.GetKey(KeyCode.D))
+        {
 
-        //movement = velocidade;
-           //rb.AddForce(movement, ForceMode2D.Impulse);
-           rb.linearVelocity = new Vector2(velocidade, rb.linearVelocity.y);
-       }
-       else if (Input.GetKey(KeyCode.A))
-       {
-           //rb.AddForce(movement, ForceMode2D.Impulse);
-           rb.linearVelocity = new Vector2(-velocidade, rb.linearVelocity.y);
-       }
-       
-       else if (Input.GetKeyDown(KeyCode.S))
-       {
-           Debug.Log("você abaixou, clicou o botão S");
-           //Vector2 movement = new Vector2(-0, velocidade);
-       }
+            //movement = velocidade;
+            //rb.AddForce(movement, ForceMode2D.Impulse);
+            rb.linearVelocity = new Vector2(velocidade, rb.linearVelocity.y);
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            //rb.AddForce(movement, ForceMode2D.Impulse);
+            rb.linearVelocity = new Vector2(-velocidade, rb.linearVelocity.y);
+        }
 
-       else //ver se mantêm
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            Debug.Log("você abaixou, clicou o botão S");
+            //Vector2 movement = new Vector2(-0, velocidade);
+        }
+
+        else //ver se mantêm
         {
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); //para não dslizar
         }
@@ -61,42 +61,33 @@ public class Player1 : MonoBehaviour
 
     void Jump()
     {
-        if(Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
 
-            if(!isJumping)
-            {
-                rb.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
-                DoubleJump = true;
-                //anim.SetBool("jump", true);
-                
-                Debug.Log("Tentando pular");
-            }
-            else if(DoubleJump)
-            {
-                rb.AddForce(new Vector2(0f, JumpForce * 2f), ForceMode2D.Impulse);
-                DoubleJump = false;
-            }
-            
+            rb.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
+            isJumping = false;
+            //anim.SetBool("jump", true);
+
+            Debug.Log("Tentando pular");
+
         }
     }
 
-      void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
-            isJumping = false;
+            isJumping = false; //false quando encosta no chão
             //anim.SetBool("jump", false);
         }
-        
+
     }
 
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Ground"))
-        {
-            isJumping = true;
-            DoubleJump = true;
-        }
-    }
+    //void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if(collision.gameObject.CompareTag("Ground"))
+    //    {
+    //        isJumping = false;
+    //    }
+    //}
 }
