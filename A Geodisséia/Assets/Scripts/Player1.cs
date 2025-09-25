@@ -11,9 +11,9 @@ public class Player1 : MonoBehaviour
 
         //private Animator anim;
 
-        public bool estaNoChao;
-        public float forcaPulo = 10f;
-        public float raioChao = 0.2f;
+        //public bool estaNoChao;
+        //public float forcaPulo = 10f;
+        //public float raioChao = 0.2f;
 
         
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -46,31 +46,31 @@ public class Player1 : MonoBehaviour
            rb.linearVelocity = new Vector2(-velocidade, rb.linearVelocity.y);
        }
        
-       else if (Input.GetKey(KeyCode.W)&&!isJumping)
-        {
-            Vector2 movementx = new Vector2(0, velocidade);
-            //rb.AddForce(movement, ForceMode2D.Impulse);
-            rb.linearVelocity = new Vector2(0, velocidade);
-        }
-
        else if (Input.GetKeyDown(KeyCode.S))
        {
            Debug.Log("você abaixou, clicou o botão S");
            //Vector2 movement = new Vector2(-0, velocidade);
        }
+
+       else //ver se mantêm
+        {
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); //para não dslizar
+        }
+
     }
 
     void Jump()
     {
-        if(Input.GetKeyDown(KeyCode.W)&&!isJumping)
+        if(Input.GetKeyDown(KeyCode.W))
         {
-            Debug.Log("Tentando pular");
 
             if(!isJumping)
             {
                 rb.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
                 DoubleJump = true;
                 //anim.SetBool("jump", true);
+                
+                Debug.Log("Tentando pular");
             }
             else if(DoubleJump)
             {
@@ -83,7 +83,7 @@ public class Player1 : MonoBehaviour
 
       void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 6)
+        if(collision.gameObject.CompareTag("Ground"))
         {
             isJumping = false;
             //anim.SetBool("jump", false);
@@ -93,7 +93,7 @@ public class Player1 : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D collision)
     {
-        if(collision.gameObject.layer == 6)
+        if(collision.gameObject.CompareTag("Ground"))
         {
             isJumping = true;
             DoubleJump = true;

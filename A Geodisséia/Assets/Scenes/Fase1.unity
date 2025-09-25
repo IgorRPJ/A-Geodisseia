@@ -536,12 +536,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 5
-  JumpForce: 0
+  JumpForce: 5
   isJumping: 0
   DoubleJump: 0
-  estaNoChao: 0
-  forcaPulo: 10
-  raioChao: 0.2
 --- !u!1 &399089269
 GameObject:
   m_ObjectHideFlags: 0
@@ -557,7 +554,7 @@ GameObject:
   - component: {fileID: 399089275}
   m_Layer: 6
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
