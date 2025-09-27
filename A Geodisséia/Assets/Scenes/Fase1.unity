@@ -538,7 +538,6 @@ MonoBehaviour:
   velocidade: 5
   JumpForce: 5
   isJumping: 0
-  DoubleJump: 0
 --- !u!1 &399089269
 GameObject:
   m_ObjectHideFlags: 0
