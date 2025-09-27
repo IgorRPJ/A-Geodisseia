@@ -61,7 +61,7 @@ public class Player1 : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
-        {
+        {   
             isJumping = false; //quando encosta no chão
 
         }
