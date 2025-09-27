@@ -8,12 +8,6 @@ public class Player2 : MonoBehaviour
         public float JumpForce;
         public bool isJumping;
         public bool DoubleJump;
-
-        //private Animator anim;
-
-        //public bool estaNoChao;
-        //public float forcaPulo = 10f;
-        //public float raioChao = 0.2f;
         
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,17 +25,13 @@ public class Player2 : MonoBehaviour
     void Andar()
     {
 
-        if (Input.GetKey(KeyCode.RightArrow)) //D
+        if (Input.GetKey(KeyCode.RightArrow)) //Direita
         {
-            Vector2 movementx = new Vector2(velocidade, 0);
-            //rb.AddForce(movement, ForceMode2D.Impulse);
-            rb.linearVelocity = new Vector2(velocidade, rb.linearVelocity.y); //continua a msm coisa, nn deixa de arrastar
+              rb.linearVelocity = new Vector2(velocidade, rb.linearVelocity.y);
         }
-        else if (Input.GetKey(KeyCode.LeftArrow)) //A
+        else if (Input.GetKey(KeyCode.LeftArrow)) //Esquerda
         {
-            Vector2 movementx = new Vector2(-velocidade, 0);
-            //rb.AddForce(movement, ForceMode2D.Impulse);
-            rb.linearVelocity = new Vector2(-velocidade, 0);
+              rb.linearVelocity = new Vector2(-velocidade, rb.linearVelocity.y);
         }
 
         else if (Input.GetKeyDown(KeyCode.DownArrow)) //S - Igual ao outro
@@ -50,19 +40,11 @@ public class Player2 : MonoBehaviour
             //Vector2 movementx = new Vector2(-0, velocidade);
         }
 
-        else //ver se mantêm - igual p1
+         else //para não deslizar
         {
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); //para não dslizar
         }
-
-        //else if (Input.GetKey(KeyCode.UpArrow) && !isJumping) //o p1 tá sem isJumping - antes
-        //{
-            //Vector2 movementx = new Vector2(0, velocidade);
-            //rb.AddForce(movement, ForceMode2D.Impulse);
-            //rb.linearVelocity = new Vector2(0, 0);
-        //}
         
-
     }
 
     void Jump()

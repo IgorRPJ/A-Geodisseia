@@ -6,15 +6,7 @@ public class Player1 : MonoBehaviour
     Rigidbody2D rb;
 
     public float JumpForce;
-    public bool isJumping;
-    public bool DoubleJump;
-
-    //private Animator anim;
-
-    //public bool estaNoChao;
-    //public float forcaPulo = 10f;
-    //public float raioChao = 0.2f;
-
+    public bool isJumping; //true= no ar, false= pode pular.
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,28 +23,24 @@ public class Player1 : MonoBehaviour
 
     void Andar()
     {
-        float movement = 0;
 
-        if (Input.GetKey(KeyCode.D)) //right
+        if (Input.GetKey(KeyCode.D)) //Direita
         {
-
-            //movement = velocidade;
-            //rb.AddForce(movement, ForceMode2D.Impulse);
             rb.linearVelocity = new Vector2(velocidade, rb.linearVelocity.y);
         }
-        else if (Input.GetKey(KeyCode.A)) //left
+
+        else if (Input.GetKey(KeyCode.A)) //Esquerda
         {
-            //rb.AddForce(movement, ForceMode2D.Impulse);
             rb.linearVelocity = new Vector2(-velocidade, rb.linearVelocity.y);
         }
 
-        else if (Input.GetKeyDown(KeyCode.S)) //Down
+        else if (Input.GetKeyDown(KeyCode.S)) //Baixo
         {
             Debug.Log("Trina abaixou, clicou o botão S");
             //Vector2 movement = new Vector2(-0, velocidade);
         }
 
-        else //ver se mantêm 
+        else //para não deslizar
         {
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); //para não dslizar
         }
@@ -61,29 +49,11 @@ public class Player1 : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.W)&& !isJumping) //coloquei isJumping pra ver se para o pulo infinito, mas ta o msm, ver os bool
+        if (Input.GetKeyDown(KeyCode.W) && !isJumping) //coloquei isJumping pra ver se para o pulo infinito, mas ta o msm, ver os bool
         {
-            //if(!isJumping) //como está no p2 pra pular apenas 1
-            //{
-            //Debug.Log("Tentando pular");
-            //rb.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
-            //DoubleJump = true;
-            //}
-            
-            //else //ver se funciona 1 pulo, assim está o p2
-            //{
-                //if (DoubleJump)
-                //{
-                    //rb.AddForce(new Vector2(0f, JumpForce * 2f), ForceMode2D.Impulse);
-                    //DoubleJump = false;
-                //}
-            //}
-
             rb.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
-            isJumping = false;
-            //anim.SetBool("jump", true);
-
-            Debug.Log("Tentando pular");
+            isJumping = true;
+            Debug.Log("pulou");
 
         }
     }
@@ -92,17 +62,16 @@ public class Player1 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isJumping = false; //false quando encosta no chão
-            //anim.SetBool("jump", false);
+            isJumping = false; //quando encosta no chão
+
         }
 
-    }
-
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Ground"))
+        void OnCollisionExit2D(Collision2D collision)
         {
-            isJumping = false; //p2 1 pulo tá true ein
+            if (collision.gameObject.CompareTag("Ground"))
+            {
+                isJumping = true; //p2 1 pulo tá true ein, saiu do chão
+            }
         }
     }
 }
