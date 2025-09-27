@@ -51,14 +51,13 @@ public class Player2 : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.UpArrow)&&!isJumping) //problema com isJumping só funciona as vezes e travado
         {
-            if(!isJumping)
+            if (!isJumping)
             {
-                Debug.Log("Tentando pular");
                 rb.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
                 DoubleJump = true;
-                //anim.SetBool("jump", true);
+                Debug.Log("pulou");
             }
-            
+
             else
             {
                 if (DoubleJump)
@@ -75,7 +74,7 @@ public class Player2 : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
-            isJumping = false;
+            isJumping = true;
             //anim.SetBool("jump", false);
         }
         
@@ -85,7 +84,7 @@ public class Player2 : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Ground"))
         {
-            isJumping = true; //p1 infinite pulo tá false ein
+            isJumping = false; //p1 infinite pulo tá false ein
         }
     }
 }
