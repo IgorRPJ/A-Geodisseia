@@ -66,7 +66,7 @@ public class Player2 : MonoBehaviour
         }
     }
 
-        void OnCollisionEnter2D(Collision2D collision)
+        void OnCollisionEnter2D(Collision2D collision) //tocou, chamou
         {
             if (collision.gameObject.CompareTag("Ground"))
             {

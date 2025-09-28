@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
+  - Trina
+  - Quadrium
+  - Moeda
   layers:
   - Default
   - TransparentFX
