@@ -3,12 +3,12 @@ using UnityEngine;
 public class Player2 : MonoBehaviour
 {
     public float velocidade = 5;
-        Rigidbody2D rb;
+    Rigidbody2D rb;
 
-        public float JumpForce;
-        public bool isJumping;
-        public bool DoubleJump;
-        
+    public float JumpForce;
+    public bool isJumping; //está no ar?
+    public bool DoubleJump; //já usou pulo extra?
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,64 +27,59 @@ public class Player2 : MonoBehaviour
 
         if (Input.GetKey(KeyCode.RightArrow)) //Direita
         {
-              rb.linearVelocity = new Vector2(velocidade, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(velocidade, rb.linearVelocity.y);
         }
         else if (Input.GetKey(KeyCode.LeftArrow)) //Esquerda
         {
-              rb.linearVelocity = new Vector2(-velocidade, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(-velocidade, rb.linearVelocity.y);
         }
 
         else if (Input.GetKeyDown(KeyCode.DownArrow)) //S - Igual ao outro
         {
             Debug.Log("Quadrium abaixou, clicou o botão ");
-            //Vector2 movementx = new Vector2(-0, velocidade);
         }
 
-         else //para não deslizar
+        else //para não deslizar
         {
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); //para não dslizar
         }
-        
+
     }
 
     void Jump()
     {
-        if(Input.GetKeyDown(KeyCode.UpArrow)&&!isJumping) //problema com isJumping só funciona as vezes e travado
+        if (Input.GetKeyDown(KeyCode.UpArrow)) //problema com isJumping só funciona as vezes e travado
         {
             if (!isJumping)
             {
                 rb.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
-                DoubleJump = true;
+                isJumping = true;
+                DoubleJump = true; //libera pulo duplo
                 Debug.Log("pulou");
             }
-
-            else
+            else if (DoubleJump)
             {
-                if (DoubleJump)
-                {
-                    rb.AddForce(new Vector2(0f, JumpForce * 2f), ForceMode2D.Impulse);
-                    DoubleJump = false;
-                }
+                rb.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
+                DoubleJump = false; //pulou já
+                Debug.Log("pulo dobrado");
             }
-            
         }
     }
 
-      void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Ground"))
+        void OnCollisionEnter2D(Collision2D collision)
         {
-            isJumping = true;
-            //anim.SetBool("jump", false);
+            if (collision.gameObject.CompareTag("Ground"))
+            {
+                isJumping = false; //chão
+                DoubleJump = false; //reseta
+            }
         }
-        
-    }
 
-    void OnCollisionExit2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("Ground"))
-        {
-            isJumping = false; //p1 infinite pulo tá false ein
-        }
-    }
-}
+       // void OnCollisionExit2D(Collision2D collision)
+       // {
+          //  if (collision.gameObject.CompareTag("Ground"))
+           // {
+         //       DoubleJump = true; //p1 infinite pulo tá false ein
+       //     }
+     //   }
+ }
