@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 578b6e7d27489674e8e2af0b28301c3e
+guid: 80dc39923ca80c54e80277af6adfe965
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7285104100621103090
-    second: fundo_0
+      213: 7265630513130348222
+    second: "C\xE9u1_multiply_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fundo_0
+      name: "C\xE9u1_multiply_0"
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 626
-        height: 417
+        width: 1123
+        height: 794
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2ff2345d493e91560800000000000000
-      internalID: 7285104100621103090
+      spriteID: ebe9f5ce474b4d460800000000000000
+      internalID: 7265630513130348222
       vertices: []
       indices: 
       edges: []

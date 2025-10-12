@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 682b99cf9984dc34c9532cbb721add95
+guid: d2edc72e442070e40b9d2a27bd9794ee
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5949100741636162987
-    second: "1\xBA fase_0"
+      213: -5399869876261758470
+    second: MontanhasT 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "1\xBA fase_0"
+      name: MontanhasT 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1280
-        height: 628
+        y: 83
+        width: 1123
+        height: 377
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 55a73c9256c807da0800000000000000
-      internalID: -5949100741636162987
+      spriteID: af9d51015fecf05b0800000000000000
+      internalID: -5399869876261758470
       vertices: []
       indices: 
       edges: []
