@@ -1636,9 +1636,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec731ad0d2b6784c8e5cb658dce475d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 286788978}
-  player2: {fileID: 1360111394}
-  smoothSpeed: 0.125
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2455,7 +2452,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1016001095048878307, guid: f8129d26e8ac66940a0d6db16c61af78, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
