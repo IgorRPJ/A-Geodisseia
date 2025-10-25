@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class Moeda_Trina : MonoBehaviour
+public class Moeda_Quadrium : MonoBehaviour
 {
-    private CircleCollider2D mT;
+    private CircleCollider2D mQ;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        mT = GetComponent<CircleCollider2D>();
+        mQ = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
@@ -14,12 +14,11 @@ public class Moeda_Trina : MonoBehaviour
     {
 
     }
-
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Trina")
+        if (collider.gameObject.tag == "Quadrium")
         {
-            mT.enabled = false;
+            mQ.enabled = false;
             Destroy(gameObject);
         }
     }
