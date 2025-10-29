@@ -61,9 +61,15 @@ public class Player1 : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision) //tocou, chamou
     {
         if (collision.gameObject.CompareTag("Ground"))
-        {   
+        {
             isJumping = false; //quando encosta no chão
 
+        }
+        
+        if (collision.gameObject.tag == "Fire")
+        {
+            Debug.Log("tocou o fogo!");
+            Destroy(gameObject);
         }
 
         void OnCollisionExit2D(Collision2D collision)
