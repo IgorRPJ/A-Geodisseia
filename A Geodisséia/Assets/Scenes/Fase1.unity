@@ -4891,6 +4891,33 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e85f73d39cd4fe4a937d781208e5b55, type: 3}
+--- !u!1 &1287070695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6562639787671142831, guid: a4c0dbef02d33f741a67fd89e8759dcd, type: 3}
+  m_PrefabInstance: {fileID: 6274621931311593815}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1287070696
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287070695}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4eb3661d51c4884580b988ef350148e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1314051312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5079,7 +5106,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.4117355, y: 4.44}
+    oldSize: {x: 4.5314536, y: 4.38}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6058,6 +6085,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2043346193493153556, guid: a4c0dbef02d33f741a67fd89e8759dcd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.43018627
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043346193493153556, guid: a4c0dbef02d33f741a67fd89e8759dcd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.43018627
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043346193493153556, guid: a4c0dbef02d33f741a67fd89e8759dcd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.43018627
+      objectReference: {fileID: 0}
+    - target: {fileID: 2043346193493153556, guid: a4c0dbef02d33f741a67fd89e8759dcd, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.27
       objectReference: {fileID: 0}
@@ -6097,14 +6136,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3670430151752263053, guid: a4c0dbef02d33f741a67fd89e8759dcd, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 8670536158589449779, guid: 1baf6edd75846cd48a5d26b3247ea2d2, type: 3}
+    - target: {fileID: 3670430151752263053, guid: a4c0dbef02d33f741a67fd89e8759dcd, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670430151752263053, guid: a4c0dbef02d33f741a67fd89e8759dcd, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3670430151752263053, guid: a4c0dbef02d33f741a67fd89e8759dcd, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6562639787671142831, guid: a4c0dbef02d33f741a67fd89e8759dcd, type: 3}
       propertyPath: m_Name
       value: Moeda azul
       objectReference: {fileID: 0}
+    - target: {fileID: 9217647027937060668, guid: a4c0dbef02d33f741a67fd89e8759dcd, type: 3}
+      propertyPath: m_Radius
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 9217647027937060668, guid: a4c0dbef02d33f741a67fd89e8759dcd, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.031915415
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6562639787671142831, guid: a4c0dbef02d33f741a67fd89e8759dcd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1287070696}
   m_SourcePrefab: {fileID: 100100000, guid: a4c0dbef02d33f741a67fd89e8759dcd, type: 3}
 --- !u!1001 &8457647129032049321
 PrefabInstance:
