@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      geodisseia logo_0: 4280191171550608445
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

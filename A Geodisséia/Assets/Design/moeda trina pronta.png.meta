@@ -159,7 +159,9 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      moeda trina pronta_0: -6493693055856904937
+      moeda trina pronta_1: -1016001095048878307
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
