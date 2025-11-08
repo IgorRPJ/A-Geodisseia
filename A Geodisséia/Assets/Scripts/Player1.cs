@@ -5,9 +5,6 @@ public class Player1 : MonoBehaviour
     public float velocidade = 5;
     Rigidbody2D rb;
 
-    private Animator anim; //para animação
-    private SpriteRenderer spriter;
-
     public float JumpForce;
     public bool isJumping; //true= no ar, false= pode pular.
 
@@ -15,8 +12,6 @@ public class Player1 : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        spriter = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -24,7 +19,6 @@ public class Player1 : MonoBehaviour
     {
         Andar();
         Jump();
-       
     }
 
     void Andar()
@@ -33,13 +27,11 @@ public class Player1 : MonoBehaviour
         if (Input.GetKey(KeyCode.D)) //Direita
         {
             rb.linearVelocity = new Vector2(velocidade, rb.linearVelocity.y);
-            spriter.flipX = false;
         }
 
         else if (Input.GetKey(KeyCode.A)) //Esquerda
         {
             rb.linearVelocity = new Vector2(-velocidade, rb.linearVelocity.y);
-            spriter.flipX = true;
         }
 
         else if (Input.GetKeyDown(KeyCode.S)) //Baixo
@@ -51,8 +43,6 @@ public class Player1 : MonoBehaviour
         else //para não deslizar
         {
             rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); //para não dslizar
-             // Atualiza a animação de andar
-        anim.SetFloat("velocidade", Mathf.Abs(velocidade));
         }
 
     }
@@ -64,7 +54,6 @@ public class Player1 : MonoBehaviour
             rb.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
             isJumping = true;
             Debug.Log("pulou");
-            anim.SetTrigger("pular");
 
         }
     }
@@ -72,15 +61,9 @@ public class Player1 : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision) //tocou, chamou
     {
         if (collision.gameObject.CompareTag("Ground"))
-        {
+        {   
             isJumping = false; //quando encosta no chão
 
-        }
-        
-        if (collision.gameObject.tag == "Fire")
-        {
-            Debug.Log("tocou o fogo!");
-            Destroy(gameObject);
         }
 
         void OnCollisionExit2D(Collision2D collision)

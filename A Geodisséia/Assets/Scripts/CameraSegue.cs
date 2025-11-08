@@ -16,7 +16,12 @@ public class CameraSegue : MonoBehaviour
 // Calcula o ponto médio entre os dois jogadores
         Vector3 middlePoint = (player1.position + player2.position) / 2f;
         Vector3 newPosition = new Vector3(middlePoint.x, middlePoint.y, transform.position.z);
-// Move a câmera suavemente
+
+        // Aplica os limites antes de mover a câmera
+        newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
+        newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
+
+        // Move a câmera suavemente
         transform.position = Vector3.Lerp(transform.position, newPosition, smoothSpeed);
     }
 }

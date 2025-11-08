@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Moeda_Trina : MonoBehaviour
 {
-    private CircleCollider2D mT;
+    private CircleCollider2D circle;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        mT = GetComponent<CircleCollider2D>();
+        circle = GetComponent<CircleCollider2D>();
     }
 
     // Update is called once per frame
@@ -19,7 +19,7 @@ public class Moeda_Trina : MonoBehaviour
     {
         if (collider.gameObject.tag == "Trina")
         {
-            mT.enabled = false;
+            circle.enabled = false;
             Destroy(gameObject);
         }
     }
