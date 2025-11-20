@@ -96,7 +96,7 @@ public class Player1 : MonoBehaviour
         if (anim != null)
             anim.SetTrigger("morrer");
             
-        rb.linearVelocity = Vector2.zero;
+        gameObject.SetActive(false);
 
         Invoke(nameof(RecarregarCena), 1f);
     }

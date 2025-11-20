@@ -2,19 +2,35 @@ using UnityEngine;
 
 public class Fogo : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    private CircleCollider2D fire;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
+        fire = GetComponent<CircleCollider2D>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    //void OnTriggerEnter2D(Collider2D collider)
+    //{
+        // if (collider.gameObject.tag == "Trina" + "Quadrium")
+        //{
+        //  fire.enabled = false;
+        //  Destroy(gameObject);
+        //}
+    //}
+
+    void OnTriggerEnter2D(Collider2D other) //tocou, chamou
+    {
+
         if (other.CompareTag("Trina") || other.CompareTag("Quadrium"))
         {
-            Debug.Log("Player tocou no fogo!");
-
-            Player1 p1 = other.GetComponent<Player1>();
-            if (p1 != null)
-                p1.Morrer();
-
-            Player2 p2 = other.GetComponent<Player2>();
-            if (p2 != null)
-                p2.Morrer();
+            GameController.instance.Respawn();
+            Debug.Log("tocou o fogo!");
         }
     }
 }
