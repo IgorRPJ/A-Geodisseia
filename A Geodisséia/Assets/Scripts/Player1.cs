@@ -1,77 +1,133 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player1 : MonoBehaviour
 {
     public float velocidade = 5;
     Rigidbody2D rb;
 
-    public float JumpForce;
-    public bool isJumping; //true= no ar, false= pode pular.
+    private Animator anim;
+    private SpriteRenderer spriter;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float JumpForce;
+
+    public bool isJumping;
+    public bool DoubleJump;
+
+    [Header("Ground Check")]
+    public Transform groundCheck;
+    public float checkRadius = 0.2f;
+    public LayerMask groundLayer;
+
+    [Header("Power Up")]
+    public int moedas = 0;
+    public int moedasNecessarias = 3;
+    public bool powerUpAtivo = false;
+    public GameObject escudoVisual;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        spriter = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        isJumping = !Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
+
         Andar();
         Jump();
     }
 
     void Andar()
     {
+        float velAtual = rb.linearVelocity.y;
 
-        if (Input.GetKey(KeyCode.D)) //Direita
+        if (Input.GetKey(KeyCode.D))
         {
-            rb.linearVelocity = new Vector2(velocidade, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(velocidade, velAtual);
+            spriter.flipX = false;
+            anim.SetFloat("velocidade", 1);
         }
-
-        else if (Input.GetKey(KeyCode.A)) //Esquerda
+        else if (Input.GetKey(KeyCode.A))
         {
-            rb.linearVelocity = new Vector2(-velocidade, rb.linearVelocity.y);
+            rb.linearVelocity = new Vector2(-velocidade, velAtual);
+            spriter.flipX = true;
+            anim.SetFloat("velocidade", 1);
         }
-
-        else if (Input.GetKeyDown(KeyCode.S)) //Baixo
+        else
         {
-            Debug.Log("Trina abaixou, clicou o botão S");
-            //Vector2 movement = new Vector2(-0, velocidade);
+            rb.linearVelocity = new Vector2(0, velAtual);
+            anim.SetFloat("velocidade", 0);
         }
-
-        else //para não deslizar
-        {
-            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y); //para não dslizar
-        }
-
     }
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.W) && !isJumping) //coloquei isJumping pra ver se para o pulo infinito, mas ta o msm, ver os bool
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            rb.AddForce(new Vector2(0f, JumpForce), ForceMode2D.Impulse);
-            isJumping = true;
-            Debug.Log("pulou");
-
+            if (!isJumping)
+            {
+                rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+                DoubleJump = true;
+                anim.SetTrigger("pular");
+            }
+            else if (DoubleJump)
+            {
+                rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+                DoubleJump = false;
+                anim.SetTrigger("pular");
+            }
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision) //tocou, chamou
+    public void TomarDano(int dano, Vector2 origem)
     {
-        if (collision.gameObject.CompareTag("Ground"))
-        {   
-            isJumping = false; //quando encosta no chão
+        if (anim != null)
+            anim.SetTrigger("hit");
 
-        }
+        Morrer();
+    }
 
-        void OnCollisionExit2D(Collision2D collision)
-        {
-            if (collision.gameObject.CompareTag("Ground"))
-            {
-                isJumping = true; //p2 1 pulo tá true ein, saiu do chão
-            }
-        }
+    public void Morrer()
+    {
+        Debug.Log("Player1 morreu!");
+        if (anim != null)
+            anim.SetTrigger("morrer");
+            
+        gameObject.SetActive(false);
+
+        Invoke(nameof(RecarregarCena), 1f);
+    }
+
+    void RecarregarCena()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+
+    public void ColetarMoeda()
+    {
+        moedas++;
+
+        if (moedas >= moedasNecessarias && !powerUpAtivo)
+            AtivarPowerUp();
+    }
+
+    void AtivarPowerUp()
+    {
+        powerUpAtivo = true;
+        velocidade *= 1.5f;
+        escudoVisual.SetActive(true);
+        Invoke(nameof(DesativarPowerUp), 10f);
+    }
+
+    void DesativarPowerUp()
+    {
+        velocidade /= 1.5f;
+        powerUpAtivo = false;
+        escudoVisual.SetActive(false);
+        moedas = 0;
     }
 }

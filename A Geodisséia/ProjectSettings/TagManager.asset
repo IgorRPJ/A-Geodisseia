@@ -8,6 +8,9 @@ TagManager:
   - Trina
   - Quadrium
   - Moeda
+  - Fire
+  - Player1
+  - Player2
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - GameOver
   - 
   - 
   - 
