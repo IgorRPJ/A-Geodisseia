@@ -79,12 +79,11 @@ public class Player2 : MonoBehaviour
         Morrer();
     }
 
-    public void Morrer()
-    {
+    public void Morrer() { 
         Debug.Log("Player2 morreu!");
-        rb.linearVelocity = Vector2.zero;
-
-        Invoke(nameof(RecarregarCena), 1f);
+        gameObject.SetActive(false);
+        gameObject.SetActive(false);
+        Invoke(nameof(RecarregarCena), 1f); 
     }
 
     void RecarregarCena()

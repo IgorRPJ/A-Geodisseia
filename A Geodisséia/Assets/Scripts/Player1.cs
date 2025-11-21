@@ -90,15 +90,11 @@ public class Player1 : MonoBehaviour
         Morrer();
     }
 
-    public void Morrer()
-    {
-        Debug.Log("Player1 morreu!");
-        if (anim != null)
-            anim.SetTrigger("morrer");
-            
-        rb.linearVelocity = Vector2.zero;
-
-        Invoke(nameof(RecarregarCena), 1f);
+    public void Morrer() { 
+        Debug.Log("Player2 morreu!");
+        gameObject.SetActive(false);
+        gameObject.SetActive(false);
+        Invoke(nameof(RecarregarCena), 1f); 
     }
 
     void RecarregarCena()

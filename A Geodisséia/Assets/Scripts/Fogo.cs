@@ -2,19 +2,25 @@ using UnityEngine;
 
 public class Fogo : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Trina") || other.CompareTag("Quadrium"))
+        if (other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
-            Debug.Log("Player tocou no fogo!");
-
             Player1 p1 = other.GetComponent<Player1>();
-            if (p1 != null)
-                p1.Morrer();
-
             Player2 p2 = other.GetComponent<Player2>();
+
+            if (p1 != null)
+            {
+                p1.Morrer();
+                Debug.Log("Player1 morreu no fogo!");
+            }
+
             if (p2 != null)
+            {
                 p2.Morrer();
+                Debug.Log("Player2 morreu no fogo!");
+            }
         }
     }
+    
 }
