@@ -48,18 +48,18 @@ public class Player1 : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(velocidade, velAtual);
             spriter.flipX = false;
-            anim.SetFloat("velocidade", 1);
+            anim.SetBool("Move", true);
         }
         else if (Input.GetKey(KeyCode.A))
         {
             rb.linearVelocity = new Vector2(-velocidade, velAtual);
             spriter.flipX = true;
-            anim.SetFloat("velocidade", 1);
+            anim.SetBool("Move", true);
         }
         else
         {
             rb.linearVelocity = new Vector2(0, velAtual);
-            anim.SetFloat("velocidade", 0);
+            anim.SetBool("Move", false);
         }
     }
 
@@ -71,13 +71,13 @@ public class Player1 : MonoBehaviour
             {
                 rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
                 DoubleJump = true;
-                anim.SetTrigger("pular");
+                anim.SetBool("Pulo", true);
             }
             else if (DoubleJump)
             {
                 rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
                 DoubleJump = false;
-                anim.SetTrigger("pular");
+                anim.SetBool("Pulo", true);
             }
         }
     }

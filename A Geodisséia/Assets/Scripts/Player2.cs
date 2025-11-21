@@ -11,6 +11,8 @@ public class Player2 : MonoBehaviour
     public bool DoubleJump;
     private Animator anim;
 
+    private SpriteRenderer spriter;
+
     [Header("Ground Check")]
     public Transform groundCheck;
     public float checkRadius = 0.2f;
@@ -26,6 +28,7 @@ public class Player2 : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        spriter = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -43,14 +46,19 @@ public class Player2 : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             rb.linearVelocity = new Vector2(velocidade, velAtual);
+            spriter.flipX = false;
+            anim.SetBool("Move", true);
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
             rb.linearVelocity = new Vector2(-velocidade, velAtual);
+            spriter.flipX = true;
+            anim.SetBool("Move", true);
         }
         else
         {
             rb.linearVelocity = new Vector2(0, velAtual);
+            anim.SetBool("Move", false);
         }
     }
 
@@ -62,11 +70,13 @@ public class Player2 : MonoBehaviour
             {
                 rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
                 DoubleJump = true;
+                anim.SetBool("Pulo", true);
             }
             else if (DoubleJump)
             {
                 rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
                 DoubleJump = false;
+                anim.SetBool("Pulo", true);
             }
         }
     }
