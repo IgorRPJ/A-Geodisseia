@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: efb7dba855fa809499a8f32530bfdacb
+guid: 9b1dcf081a9b9364fae774b75ffc1b14
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1531101307947849188
-    second: Ground esq._0
+      213: -4237423700342313926
+    second: paredes prontas_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 295
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,23 +100,115 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ground esq._0
+      name: paredes prontas_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
+        x: 102
+        y: 672
+        width: 295
+        height: 295
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline:
+      - - {x: 141, y: 141}
+        - {x: -141, y: 141}
+        - {x: -141, y: -141}
+        - {x: 141, y: -141}
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3c664a6895a135c0800000000000000
+      internalID: -4237423700342313926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paredes prontas_1
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 671
+        width: 295
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4e51e5707809f3510800000000000000
-      internalID: 1531101307947849188
+      spriteID: 17d4dd5f6ba8b404793af3c13dab18c2
+      internalID: 402728427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paredes prontas_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 354
+        width: 295
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 666856908a5590e418cc9c697de447cc
+      internalID: 44915796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paredes prontas_3
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 25
+        width: 295
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aebbe7e1a28e65458f20b5ac6216933
+      internalID: 1797061869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: paredes prontas_4
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 25
+        width: 295
+        height: 295
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80c16123058a75d41a72fe05282c8e9e
+      internalID: -263206361
       vertices: []
       indices: 
       edges: []
@@ -125,7 +217,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 3e90a8e21e98c7247819d38074fc3dbe
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +227,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ground esq._0: 1531101307947849188
+      paredes prontas_0: -4237423700342313926
+      paredes prontas_1: 402728427
+      paredes prontas_2: 44915796
+      paredes prontas_3: 1797061869
+      paredes prontas_4: -263206361
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

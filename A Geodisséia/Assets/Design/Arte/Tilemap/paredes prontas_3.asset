@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Ground direi._0
-  m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 5429802076235389484, guid: d192c169285c40a41a8ea446c2fd25a3, type: 3}
+  m_Name: paredes prontas_3
+  m_EditorClassIdentifier: UnityEngine.dll::UnityEngine.Tilemaps.Tile
+  m_Sprite: {fileID: 1797061869, guid: 9b1dcf081a9b9364fae774b75ffc1b14, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
