@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9471e532bb9919743b39ff13d6e95fc6
+guid: 368d8ac0f76b5ec43babbfa4f5154e94
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7705367988282975493
-    second: M03_0
+      213: 948339558810883539
+    second: M03 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,43 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: M03_0
+      name: M03 1_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 1
-        width: 62
-        height: 138
+        x: 0
+        y: 0
+        width: 76
+        height: 135
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bfa1ab2b3a8011590800000000000000
-      internalID: -7705367988282975493
+      spriteID: 3d59f51edcd292d00800000000000000
+      internalID: 948339558810883539
       vertices: []
       indices: 
       edges: []
@@ -161,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      M03_0: -7705367988282975493
+      M03 1_0: 948339558810883539
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a3384fd869928574daa3a172ac609311
+guid: 0fedbea8fb2a36141a9da52f5cf79d3d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4664342257684448872
-    second: M04_0
+      213: 4788484934825798555
+    second: M04 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,43 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WindowsStoreApps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: M04_0
+      name: M04 1_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 0
         y: 0
-        width: 39
-        height: 139
+        width: 63
+        height: 136
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 899ffdbed6de44fb0800000000000000
-      internalID: -4664342257684448872
+      spriteID: b9be9908dad147240800000000000000
+      internalID: 4788484934825798555
       vertices: []
       indices: 
       edges: []
@@ -161,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      M04_0: -4664342257684448872
+      M04 1_0: 4788484934825798555
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
