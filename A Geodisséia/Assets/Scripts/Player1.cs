@@ -56,7 +56,7 @@ public class Player1 : MonoBehaviour
     void AtualizarUI()
     {
         if (textoUI != null)
-            textoUI.text = tangrams +"/7";
+            textoUI.text = "P1: " + tangrams;
     }
 
     void DetectarChao()
@@ -136,7 +136,8 @@ public class Player1 : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-          
+
+
     public void ColetarMoeda()
     {
         moedas++;
