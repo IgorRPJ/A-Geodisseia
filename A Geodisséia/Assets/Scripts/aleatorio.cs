@@ -1,23 +1,15 @@
 using UnityEngine;
+using TMPro;
 
 public class Aleatorio : MonoBehaviour
 {
+    //public void TextUptade(int value)
     void OnTriggerEnter2D(Collider2D collider)
     {
-        Player1 p1 = collider.GetComponent<Player1>();
-        if (p1 != null)
+        if (collider.CompareTag("Player1") || collider.CompareTag("Player2"))
         {
-            Debug.Log("Player 1 pegou o item aleatório!");
+            GameManager.Instance.AddTangram();
             Destroy(gameObject);
-            return;
-        }
-
-        Player2 p2 = collider.GetComponent<Player2>();
-        if (p2 != null)
-        {
-            Debug.Log("Player 2 pegou o item aleatório!");
-            Destroy(gameObject);
-            return;
-        }
+         }
     }
 }

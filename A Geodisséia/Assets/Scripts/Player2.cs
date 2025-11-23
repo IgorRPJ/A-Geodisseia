@@ -52,7 +52,7 @@ public class Player2 : MonoBehaviour
     void AtualizarUI()
     {
         if (textoUI != null)
-            textoUI.text = "P2: " + tangrams;
+            textoUI.text = tangrams +"/7";
     }
 
     void DetectarChao()

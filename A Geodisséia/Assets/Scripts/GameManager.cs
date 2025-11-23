@@ -1,9 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    public int tangrams = 0;
+    public int totalTangrams = 7;
+
+    public TextMeshProUGUI textoUI;
 
    // public int Lives; quantas vidas tem o jogador
 
@@ -24,6 +30,18 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+     public void AddTangram()
+    {
+        tangrams++;
+        AtualizarUI();
+    }
+
+    void AtualizarUI()
+    {
+        if (textoUI != null)
+            textoUI.text = $"{tangrams}/{totalTangrams}";
     }
 
     private void Start()
