@@ -9,8 +9,8 @@ public class Player2 : MonoBehaviour
     public float JumpForce;
     public bool isJumping;
     public bool DoubleJump;
-    private Animator anim;
 
+    private Animator anim;
     private SpriteRenderer spriter;
 
     [Header("Ground Check")]
@@ -33,10 +33,16 @@ public class Player2 : MonoBehaviour
 
     void Update()
     {
-        isJumping = !Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
-
+        DetectarChao();
         Andar();
         Jump();
+    }
+
+    void DetectarChao()
+    {
+        isJumping = !Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
+        if (!isJumping)
+            DoubleJump = true;
     }
 
     void Andar()
@@ -69,7 +75,6 @@ public class Player2 : MonoBehaviour
             if (!isJumping)
             {
                 rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
-                DoubleJump = true;
                 anim.SetBool("Pulo", true);
             }
             else if (DoubleJump)
@@ -79,6 +84,9 @@ public class Player2 : MonoBehaviour
                 anim.SetBool("Pulo", true);
             }
         }
+
+        if (!isJumping)
+            anim.SetBool("Pulo", false);
     }
 
     public void TomarDano(int dano, Vector2 origem)
@@ -89,18 +97,17 @@ public class Player2 : MonoBehaviour
         Morrer();
     }
 
-    public void Morrer() { 
+    public void Morrer()
+    {
         Debug.Log("Player2 morreu!");
         gameObject.SetActive(false);
-        gameObject.SetActive(false);
-        Invoke(nameof(RecarregarCena), 1f); 
+        Invoke(nameof(RecarregarCena), 1f);
     }
 
     void RecarregarCena()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
 
     public void ColetarMoeda()
     {
@@ -115,6 +122,7 @@ public class Player2 : MonoBehaviour
         powerUpAtivo = true;
         velocidade *= 1.5f;
         escudoVisual.SetActive(true);
+
         Invoke(nameof(DesativarPowerUp), 10f);
     }
 

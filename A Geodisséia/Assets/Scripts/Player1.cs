@@ -3,27 +3,30 @@ using UnityEngine.SceneManagement;
 
 public class Player1 : MonoBehaviour
 {
-    public float velocidade = 5;
-    Rigidbody2D rb;
+    [Header("Movimentação")]
+    public float velocidade = 5f;
+    public float JumpForce = 10f;
 
+    private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer spriter;
-
-    public float JumpForce;
-
-    public bool isJumping;
-    public bool DoubleJump;
 
     [Header("Ground Check")]
     public Transform groundCheck;
     public float checkRadius = 0.2f;
     public LayerMask groundLayer;
 
+    private bool isGrounded = false;
+
     [Header("Power Up")]
     public int moedas = 0;
     public int moedasNecessarias = 3;
     public bool powerUpAtivo = false;
     public GameObject escudoVisual;
+
+    [Header("Player Check")]
+    public LayerMask playerLayer;
+
 
     void Start()
     {
@@ -34,53 +37,68 @@ public class Player1 : MonoBehaviour
 
     void Update()
     {
-        isJumping = !Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
-
+        DetectarChao();
         Andar();
         Jump();
     }
 
+    void DetectarChao()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkRadius, groundLayer);
+        if (!isGrounded)
+        {
+            Collider2D col = Physics2D.OverlapCircle(groundCheck.position, checkRadius);
+
+            if (col != null && col.CompareTag("Player2"))
+            {
+                isGrounded = true; 
+            }
+        }
+    }
+
     void Andar()
     {
-        float velAtual = rb.linearVelocity.y;
+        float velY = rb.linearVelocity.y;
 
         if (Input.GetKey(KeyCode.D))
         {
-            rb.linearVelocity = new Vector2(velocidade, velAtual);
+            rb.linearVelocity = new Vector2(velocidade, velY);
             spriter.flipX = false;
             anim.SetBool("Move", true);
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            rb.linearVelocity = new Vector2(-velocidade, velAtual);
+            rb.linearVelocity = new Vector2(-velocidade, velY);
             spriter.flipX = true;
             anim.SetBool("Move", true);
         }
         else
         {
-            rb.linearVelocity = new Vector2(0, velAtual);
+            rb.linearVelocity = new Vector2(0, velY);
             anim.SetBool("Move", false);
         }
     }
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        bool onPlayer2 = Physics2D.OverlapCircle(groundCheck.position, checkRadius, playerLayer);
+
+        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
         {
-            if (!isJumping)
-            {
-                rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
-                DoubleJump = true;
-                anim.SetBool("Pulo", true);
-            }
-            else if (DoubleJump)
-            {
-                rb.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
-                DoubleJump = false;
-                anim.SetBool("Pulo", true);
-            }
+            rb.AddForce(Vector2.up * JumpForce, ForceMode2D.Impulse);
+            anim.SetBool("Pulo", true);
         }
+
+        if (Input.GetKeyDown(KeyCode.W) && onPlayer2)
+        {
+            rb.AddForce(Vector2.up * (JumpForce * 0.8f), ForceMode2D.Impulse);
+            anim.SetTrigger("Pulo");
+        }
+
+        if (isGrounded)
+            anim.SetBool("Pulo", false);
     }
+
 
     public void TomarDano(int dano, Vector2 origem)
     {
@@ -90,11 +108,11 @@ public class Player1 : MonoBehaviour
         Morrer();
     }
 
-    public void Morrer() { 
-        Debug.Log("Player2 morreu!");
+    public void Morrer()
+    {
+        Debug.Log("Player1 morreu!");
         gameObject.SetActive(false);
-        gameObject.SetActive(false);
-        Invoke(nameof(RecarregarCena), 1f); 
+        Invoke(nameof(RecarregarCena), 1f);
     }
 
     void RecarregarCena()
@@ -116,6 +134,7 @@ public class Player1 : MonoBehaviour
         powerUpAtivo = true;
         velocidade *= 1.5f;
         escudoVisual.SetActive(true);
+
         Invoke(nameof(DesativarPowerUp), 10f);
     }
 
@@ -125,5 +144,14 @@ public class Player1 : MonoBehaviour
         powerUpAtivo = false;
         escudoVisual.SetActive(false);
         moedas = 0;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(groundCheck.position, checkRadius);
+        }
     }
 }
