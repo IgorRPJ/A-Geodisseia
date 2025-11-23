@@ -1,8 +1,13 @@
 using UnityEngine;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class Player1 : MonoBehaviour
 {
+
+    public int tangrams = 0;
+    public TextMeshProUGUI textoUI;
+
     [Header("Movimentação")]
     public float velocidade = 5f;
     public float JumpForce = 10f;
@@ -40,6 +45,18 @@ public class Player1 : MonoBehaviour
         DetectarChao();
         Andar();
         Jump();
+    }
+
+    public void PegarTangram()
+    {
+        tangrams++;
+        AtualizarUI();
+    }
+
+    void AtualizarUI()
+    {
+        if (textoUI != null)
+            textoUI.text = "P1: " + tangrams;
     }
 
     void DetectarChao()
