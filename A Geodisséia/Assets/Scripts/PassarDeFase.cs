@@ -10,7 +10,7 @@ public class PassarDeFase : MonoBehaviour
     {
         if (other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
-            SceneManager.LoadScene(NomeDaProximaCena);
+            SceneManager.LoadScene(nomeDaProximaCena);
         }
     }
 }
