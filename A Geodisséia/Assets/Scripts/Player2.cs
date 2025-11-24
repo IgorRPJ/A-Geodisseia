@@ -137,7 +137,6 @@ public class Player2 : MonoBehaviour
     void AtivarPowerUp()
     {
         powerUpAtivo = true;
-        velocidade *= 1.5f;
         escudoVisual.SetActive(true);
 
         Invoke(nameof(DesativarPowerUp), 10f);
@@ -145,7 +144,6 @@ public class Player2 : MonoBehaviour
 
     void DesativarPowerUp()
     {
-        velocidade /= 1.5f;
         powerUpAtivo = false;
         escudoVisual.SetActive(false);
         moedas = 0;

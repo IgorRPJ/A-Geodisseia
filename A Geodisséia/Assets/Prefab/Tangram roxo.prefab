@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2867168358959654018}
   - component: {fileID: 579114418657088825}
   - component: {fileID: 3329177271269728230}
-  - component: {fileID: 3132250309237932101}
-  m_Layer: 0
+  - component: {fileID: 2637899623132482544}
+  m_Layer: 8
   m_Name: Tangram roxo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,9 +126,9 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 2.6
---- !u!114 &3132250309237932101
+  m_Offset: {x: 0.19549581, y: 0}
+  m_Radius: 0.65450424
+--- !u!114 &2637899623132482544
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,6 +137,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6297302386388429946}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdb8133178192c84a8829f14e4d73226, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dfe0bac58d5b954d817a2d79d1f12bc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Aleatorio
+  m_EditorClassIdentifier: Assembly-CSharp::Tangram

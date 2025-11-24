@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7374202417567614393}
   - component: {fileID: 5217741355996554861}
   - component: {fileID: 250333499708116262}
-  - component: {fileID: 6643666261367416806}
-  m_Layer: 0
+  - component: {fileID: 8132113765449834350}
+  m_Layer: 8
   m_Name: Tangram azul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,8 +127,8 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 2.6
---- !u!114 &6643666261367416806
+  m_Radius: 0.85
+--- !u!114 &8132113765449834350
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,6 +137,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8025128467392443912}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdb8133178192c84a8829f14e4d73226, type: 3}
+  m_Script: {fileID: 11500000, guid: 1dfe0bac58d5b954d817a2d79d1f12bc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Aleatorio
+  m_EditorClassIdentifier: Assembly-CSharp::Tangram

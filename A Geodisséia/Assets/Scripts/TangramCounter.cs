@@ -30,6 +30,6 @@ public class TangramCounter : MonoBehaviour
 
     private void UpdateText()
     {
-        counterText.text = "Tangrams: " + count.ToString();
+        counterText.text = count.ToString();
     }
 }

@@ -27,7 +27,6 @@ public class Player1 : MonoBehaviour
     public int moedas = 0;
     public int moedasNecessarias = 3;
     public bool powerUpAtivo = false;
-    public GameObject escudoVisual;
 
     [Header("Player Check")]
     public LayerMask playerLayer;
@@ -150,7 +149,6 @@ public class Player1 : MonoBehaviour
     {
         powerUpAtivo = true;
         velocidade *= 1.5f;
-        escudoVisual.SetActive(true);
 
         Invoke(nameof(DesativarPowerUp), 10f);
     }
@@ -159,7 +157,6 @@ public class Player1 : MonoBehaviour
     {
         velocidade /= 1.5f;
         powerUpAtivo = false;
-        escudoVisual.SetActive(false);
         moedas = 0;
     }
 
