@@ -128,7 +128,7 @@ public class Player1 : MonoBehaviour
     {
         Debug.Log("Player1 morreu!");
         gameObject.SetActive(false);
-        Invoke(nameof(RecarregarCena), 1f);
+        Invoke(nameof(RecarregarCena), 0.5f);
     }
 
     void RecarregarCena()
