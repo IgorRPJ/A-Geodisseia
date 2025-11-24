@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b979e4555d071a2489d750e3a8ee4899, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PassarDeFase
-  nomeDaProximaCena: Fase3
+  nomeDaProximaCena: Cutscene Final
 --- !u!212 &195510559
 SpriteRenderer:
   m_ObjectHideFlags: 0
