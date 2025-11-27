@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 138040311}
   - component: {fileID: 138040310}
   m_Layer: 5
-  m_Name: Background
+  m_Name: BackgroundFinal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -552,7 +552,7 @@ GameObject:
   - component: {fileID: 652239882}
   - component: {fileID: 652239881}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: ImageF (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -627,7 +627,7 @@ GameObject:
   - component: {fileID: 736545448}
   - component: {fileID: 736545447}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: ImageF (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -704,7 +704,7 @@ GameObject:
   - component: {fileID: 923780619}
   - component: {fileID: 923780623}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -830,6 +830,8 @@ PlayableDirector:
     value: {fileID: 77209651}
   - key: {fileID: 5338063162531490899, guid: a1ebd4ab3fd2b7c499b69cb21f8b976b, type: 2}
     value: {fileID: 77209652}
+  - key: {fileID: -5063961178651071699, guid: a1ebd4ab3fd2b7c499b69cb21f8b976b, type: 2}
+    value: {fileID: 1618898909}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &1238290321
@@ -844,7 +846,7 @@ GameObject:
   - component: {fileID: 1238290324}
   - component: {fileID: 1238290323}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ImageF
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
