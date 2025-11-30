@@ -11,8 +11,12 @@ public class Moeda_Trina : MonoBehaviour
         if (p1 != null)
         {
             p1.ColetarMoeda();
-            Instantiate(somMoedaPrefab, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+
+            // Instancia o som sem ser filho da moeda
+            GameObject som = Instantiate(somMoedaPrefab, transform.position, Quaternion.identity);
+            Destroy(som, 2f); // destrói só o som depois
+
+            Destroy(gameObject); // destrói a moeda separadamente
         }
     }
 }
