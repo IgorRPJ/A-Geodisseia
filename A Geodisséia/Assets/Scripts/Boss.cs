@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+
 
 public class Boss : MonoBehaviour
 {
@@ -14,10 +16,22 @@ public class Boss : MonoBehaviour
     public float tempoEntreAtaques = 0.8f;
     private float cooldown = 0f;
 
+    [Header("Visual")]
+    public SpriteRenderer sprite;
+    public Color corDano = Color.red;
+    public float alphaDano = 0.6f;
+    public float tempoFlash = 0.1f;
+
+
+
     void Start()
     {
-        vidaAtual = vidaMax;
+    vidaAtual = vidaMax;
+
+    if (sprite == null)
+        sprite = GetComponent<SpriteRenderer>();
     }
+
 
     void Update()
     {
@@ -107,13 +121,33 @@ public class Boss : MonoBehaviour
     public void TomarDano(int dano)
     {
         vidaAtual -= dano;
-        Debug.Log("Boss tomou dano! Vida = " + vidaAtual);
+
+        StopAllCoroutines();
+        StartCoroutine(FlashDano());
 
         if (vidaAtual <= 0)
         {
             Morrer();
         }
     }
+
+    IEnumerator FlashDano()
+{
+    Color corOriginal = sprite.color;
+
+    sprite.color = new Color(
+        corDano.r,
+        corDano.g,
+        corDano.b,
+        alphaDano
+    );
+
+    yield return new WaitForSeconds(tempoFlash);
+
+    sprite.color = corOriginal;
+}
+
+
 
     void OnCollisionEnter2D(Collision2D col)
     {

@@ -8714,6 +8714,10 @@ MonoBehaviour:
   velocidade: 2
   projetil: {fileID: 612879857}
   tempoEntreAtaques: 2
+  sprite: {fileID: 0}
+  corDano: {r: 1, g: 1, b: 1, a: 0.57254905}
+  alphaDano: 0.6
+  tempoFlash: 0.1
 --- !u!212 &1364387565
 SpriteRenderer:
   m_ObjectHideFlags: 0
